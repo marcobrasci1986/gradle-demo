@@ -1,0 +1,27 @@
+rootProject.name = 'gradle-demo'
+
+dependencyResolutionManagement {
+    versionCatalogs {
+        libs {
+            version('spring.boot', '3.0.2')
+            version('openapi.generator', '6.3.0')
+            version('openapi.parser', '2.0.33')
+            version('openapi.springdoc', '1.6.9')
+            version('lombok.version', '1.18.26')
+
+            plugin('spring.boot', 'org.springframework.boot').versionRef('spring.boot')
+            plugin('openapi.generator', 'org.openapi.generator').versionRef('openapi.generator')
+
+            // bom
+            library('sping.boot.dependencies', 'org.springframework.boot', 'spring-boot-dependencies').versionRef('spring.boot')
+
+            // openapi
+            library('openapi.parser', 'io.swagger.parser.v3', 'swagger-parser').versionRef('openapi.parser')
+            library('openapi.springdoc', 'org.springdoc', 'springdoc-openapi-ui').versionRef('openapi.springdoc')
+
+
+            library('lombok', 'org.projectlombok', 'lombok').versionRef('lombok.version')
+
+        }
+    }
+}
