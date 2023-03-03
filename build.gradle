@@ -5,14 +5,11 @@ buildscript {
 }
 
 plugins {
-    id 'java'
-    id 'org.springframework.boot' version '3.0.3'apply false
+    id 'org.springframework.boot' version '3.0.3' apply false
     id 'io.spring.dependency-management' version '1.1.0' apply false
     id "org.openapi.generator" version '6.3.0' apply false
     id "org.flywaydb.flyway" version "${flyway_version}" apply false
 }
-
-//apply plugin: "org.openapi.generator"
 
 subprojects {
     apply plugin: 'java-library'
@@ -26,12 +23,10 @@ subprojects {
     }
 
     dependencies {
-        implementation 'org.springframework.boot:spring-boot-starter-web'
-
         compileOnly libs.lombok
         annotationProcessor libs.lombok
 
-        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
 
         testCompileOnly libs.lombok
         testAnnotationProcessor libs.lombok
@@ -41,25 +36,3 @@ subprojects {
         useJUnitPlatform()
     }
 }
-
-//openApiGenerate {
-//    generatorName = "spring"
-//    inputSpec = "$rootDir/src/main/resources/specification/ifg.yml"
-//    outputDir = "$buildDir/generated"
-//    apiPackage = "be.vlaanderen.ajh.ifg.api.server"
-//    modelPackage = "be.vlaanderen.ajh.ifg.api.server.transferobjects"
-//    configOptions = [
-//            interfaceOnly       : "true",
-//            skipDefaultInterface: "true",
-//            useOptional         : "true",
-//            useBeanValidation   : "false",
-//            openApiNullable     : "false",
-//            useTags             : "true",
-//            useSpringBoot3      : "true"
-//    ]
-//    globalProperties = [
-//            skipFormModel: "false", // https://github.com/OpenAPITools/openapi-generator/issues/13026
-//    ]
-//}
-//
-//compileJava.dependsOn tasks.openApiGenerate

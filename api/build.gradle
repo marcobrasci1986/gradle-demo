@@ -1,0 +1,23 @@
+apply plugin: "org.openapi.generator"
+
+openApiGenerate {
+    generatorName = "spring"
+    inputSpec = "$rootDir/api/specification/ifg.yml"
+    outputDir = "$buildDir/generated"
+    apiPackage = "be.vlaanderen.ajh.ifg.api.server"
+    modelPackage = "be.vlaanderen.ajh.ifg.api.server.transferobjects"
+    configOptions = [
+            interfaceOnly       : "true",
+            skipDefaultInterface: "true",
+            useOptional         : "true",
+            useBeanValidation   : "false",
+            openApiNullable     : "false",
+            useTags             : "true",
+            useSpringBoot3      : "true"
+    ]
+    globalProperties = [
+            skipFormModel: "false", // https://github.com/OpenAPITools/openapi-generator/issues/13026
+    ]
+}
+
+compileJava.dependsOn tasks.openApiGenerate
