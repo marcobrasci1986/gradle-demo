@@ -1,0 +1,10 @@
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'org.springframework.boot'
+
+springBoot {
+    mainClass = "be.ifg.demo.OpenApi.Demo.OpenApiDemoApplication"
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+}
