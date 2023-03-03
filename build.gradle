@@ -1,9 +1,9 @@
 plugins {
-	id 'java'
-	id 'org.springframework.boot' version '3.0.3'
-	id 'io.spring.dependency-management' version '1.1.0'
-	id "org.openapi.generator" version  '6.3.0'
-	id "org.flywaydb.flyway" version  '6.3.2'
+    id 'java'
+    id 'org.springframework.boot' version '3.0.3'
+    id 'io.spring.dependency-management' version '1.1.0'
+    id "org.openapi.generator" version '6.3.0'
+    id "org.flywaydb.flyway" version '6.3.2'
 }
 
 apply plugin: "org.openapi.generator"
@@ -13,17 +13,17 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-validation'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
 
-	compileOnly libs.lombok
+    compileOnly libs.lombok
     annotationProcessor libs.lombok
 
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
     testCompileOnly libs.lombok
     testAnnotationProcessor libs.lombok
@@ -31,7 +31,7 @@ dependencies {
 }
 
 tasks.named('test') {
-	useJUnitPlatform()
+    useJUnitPlatform()
 }
 
 openApiGenerate {
