@@ -12,6 +12,6 @@ dependencies {
 }
 
 // prevents Failed to calculate the value of task ':model:bootJar' property 'mainClass'.
-bootJar {
+tasks.named("bootJar") {
     enabled = false
 }

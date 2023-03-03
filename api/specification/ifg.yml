@@ -17,6 +17,7 @@ paths:
       summary: Save User
       operationId: saveUser
       requestBody:
+        required: true
         content:
           application/json:
             schema:
