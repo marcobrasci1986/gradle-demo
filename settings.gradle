@@ -1,6 +1,8 @@
 rootProject.name = 'gradle-demo'
 
+// root project
 include 'application'
+// sub projects
 include 'api'
 include 'model'
 
