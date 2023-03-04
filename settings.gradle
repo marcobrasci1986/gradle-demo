@@ -5,6 +5,7 @@ include 'application'
 // sub projects
 include 'api'
 include 'model'
+include 'lib'
 
 dependencyResolutionManagement {
     versionCatalogs {
