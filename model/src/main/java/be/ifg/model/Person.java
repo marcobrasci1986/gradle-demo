@@ -1,14 +1,15 @@
 package be.ifg.model;
 
-//import lombok.Builder;
-//import lombok.Getter;
+import lombok.Builder;
+import lombok.Getter;
+
 //
-//@Getter
+@Getter
 public class Person {
 
     private final String name;
 
-    //    @Builder
+    @Builder
     public Person(String name) {
         this.name = name;
     }
