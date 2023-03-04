@@ -21,7 +21,3 @@ openApiGenerate {
 }
 
 compileJava.dependsOn tasks.openApiGenerate
-
-tasks.named("bootJar") {
-    enabled = false
-}

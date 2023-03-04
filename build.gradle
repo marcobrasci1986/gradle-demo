@@ -28,4 +28,13 @@ subprojects {
     test {
         useJUnitPlatform()
     }
+
+    /**
+     * Need to be added, Main class name has not been configured and it could not be resolved.
+     * https://github.com/gradle/gradle/issues/12789
+     */
+    bootJar {
+        enabled = false
+    }
 }
+

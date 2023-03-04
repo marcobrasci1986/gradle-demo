@@ -5,8 +5,3 @@ dependencies {
     testCompileOnly 'org.projectlombok:lombok'
     testAnnotationProcessor 'org.projectlombok:lombok'
 }
-
-// prevents Failed to calculate the value of task ':model:bootJar' property 'mainClass'.
-tasks.named("bootJar") {
-    enabled = false
-}
