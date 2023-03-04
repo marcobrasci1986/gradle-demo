@@ -11,6 +11,8 @@ plugins {
 
 subprojects {
     apply plugin: 'java-library'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
 
     group = 'be.ifg.demo'
     version = '0.0.1-SNAPSHOT'
@@ -21,7 +23,6 @@ subprojects {
     }
 
     dependencies {
-//        implementation platform(libs.sping.boot.dependencies)
     }
 
     test {

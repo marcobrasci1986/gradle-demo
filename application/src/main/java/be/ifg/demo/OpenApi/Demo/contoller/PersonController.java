@@ -13,8 +13,8 @@ public class PersonController {
     @GetMapping("/api/persons")
     public ResponseEntity<List<Person>> findPersons() {
         List<Person> result = List.of(
-                Person.builder().name("John").build(),
-                Person.builder().name("Mark").build()
+//                Person.builder().name("John").build(),
+//                Person.builder().name("Mark").build()
         );
 
         return ResponseEntity.ok(result);
