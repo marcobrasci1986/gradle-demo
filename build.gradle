@@ -4,6 +4,7 @@ buildscript {
     }
 }
 
+
 plugins {
     alias libs.plugins.spring.boot apply false
     alias libs.plugins.openapi.generator apply false
@@ -11,7 +12,6 @@ plugins {
 
 subprojects {
     apply plugin: 'java-library'
-    apply plugin: 'org.springframework.boot'
     apply plugin: 'io.spring.dependency-management'
 
     group = 'be.ifg.demo'
@@ -22,19 +22,25 @@ subprojects {
         mavenCentral()
     }
 
+    dependencyManagement {
+        imports {
+            mavenBom org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES
+        }
+    }
+
     dependencies {
+        // list dependencies for all sub projects
+
+        compileOnly 'org.projectlombok:lombok'
+        annotationProcessor 'org.projectlombok:lombok'
+
+        testCompileOnly 'org.projectlombok:lombok'
+        testAnnotationProcessor 'org.projectlombok:lombok'
     }
 
     test {
         useJUnitPlatform()
     }
 
-    /**
-     * Need to be added, Main class name has not been configured and it could not be resolved.
-     * https://github.com/gradle/gradle/issues/12789
-     */
-    bootJar {
-        enabled = false
-    }
 }
 
