@@ -1,5 +1,11 @@
 apply plugin: "org.openapi.generator"
 
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation libs.openapi.parser
+    implementation libs.openapi.springdoc
+}
+
 openApiGenerate {
     generatorName = "spring"
     inputSpec = "$rootDir/api/specification/ifg.yml"
@@ -10,7 +16,7 @@ openApiGenerate {
             interfaceOnly       : "true",
             skipDefaultInterface: "true",
             useOptional         : "true",
-            useBeanValidation   : "false",
+            useBeanValidation   : "true",
             openApiNullable     : "false",
             useTags             : "true",
             useSpringBoot3      : "true"
@@ -21,3 +27,7 @@ openApiGenerate {
 }
 
 compileJava.dependsOn tasks.openApiGenerate
+processResources.dependsOn tasks.openApiGenerate
+sourceSets.main.java.srcDir "$buildDir/generated/src/main/java"
+sourceSets.main.resources.srcDir "$buildDir/generated/src/main/resources"
+

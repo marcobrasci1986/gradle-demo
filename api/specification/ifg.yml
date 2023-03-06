@@ -9,13 +9,16 @@ info:
 servers:
   - url: http://localhost:8080/api
     description: Local server
-
+tags:
+  - name: User
+    description: Alle API calls met betrekking tot een User
 paths:
-
   /user:
     post:
       summary: Save User
       operationId: saveUser
+      tags:
+        - User
       requestBody:
         required: true
         content:
@@ -37,6 +40,10 @@ components:
     UserDTO:
       type: object
       description: DTO for User
+      required:
+        - email
+        - firstName
+        - lastName
       properties:
         id:
           type: string

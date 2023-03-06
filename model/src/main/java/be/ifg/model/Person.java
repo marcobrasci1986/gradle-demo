@@ -1,16 +1,9 @@
 package be.ifg.model;
 
 import lombok.Builder;
-import lombok.Getter;
 
-//
-@Getter
-public class Person {
+@Builder
+public record Person(String name) {
 
-    private final String name;
 
-    @Builder
-    public Person(String name) {
-        this.name = name;
-    }
 }

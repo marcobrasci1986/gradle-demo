@@ -12,7 +12,7 @@ dependencyResolutionManagement {
         libs {
             version('spring.boot', '3.0.3')
             version('openapi.generator', '6.3.0')
-            version('openapi.parser', '2.0.33')
+            version('openapi.parser', '2.1.12')
             version('openapi.springdoc', '1.6.9')
 
             plugin('spring.boot', 'org.springframework.boot').versionRef('spring.boot')

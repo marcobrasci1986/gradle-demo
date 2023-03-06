@@ -5,7 +5,7 @@ buildscript {
 }
 
 plugins {
-    alias libs.plugins.spring.boot apply false // only applied in application
+    alias libs.plugins.spring.boot apply false // only applied in application, requires a Main class
     alias libs.plugins.openapi.generator apply false
 }
 
@@ -37,10 +37,32 @@ subprojects {
 
         testCompileOnly 'org.projectlombok:lombok'
         testAnnotationProcessor 'org.projectlombok:lombok'
+
+        //https://dev.to/art_ptushkin/how-to-properly-ignore-junit-4-in-gradle-and-maven-3o82
+        testImplementation('org.springframework.boot:spring-boot-starter-test') {
+            exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+        }
+
     }
 
-    test {
-        useJUnitPlatform()
+    // https://medium.com/@jonashavers/how-to-use-junit-5-with-gradle-fb7c5c3286cc
+    tasks {
+        test {
+            useJUnitPlatform()
+            testLogging {
+                events 'PASSED', 'FAILED', 'SKIPPED'
+                showStandardStreams = true
+            }
+            afterSuite { desc, result ->
+                if (!desc.parent) {
+                    println "\nTest result: ${result.resultType}"
+                    println "Test summary: ${result.testCount} tests, " +
+                            "${result.successfulTestCount} succeeded, " +
+                            "${result.failedTestCount} failed, " +
+                            "${result.skippedTestCount} skipped"
+                }
+            }
+        }
     }
 
 }
