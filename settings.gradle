@@ -14,6 +14,7 @@ dependencyResolutionManagement {
             version('openapi.generator', '6.3.0')
             version('openapi.parser', '2.1.12')
             version('openapi.springdoc', '1.6.9')
+            version('springdoc.openapi.starter', '2.0.2')
 
             plugin('spring.boot', 'org.springframework.boot').versionRef('spring.boot')
             plugin('openapi.generator', 'org.openapi.generator').versionRef('openapi.generator')
@@ -21,6 +22,8 @@ dependencyResolutionManagement {
             // openapi
             library('openapi.parser', 'io.swagger.parser.v3', 'swagger-parser').versionRef('openapi.parser')
             library('openapi.springdoc', 'org.springdoc', 'springdoc-openapi-ui').versionRef('openapi.springdoc')
+
+            library('springdoc.openapi.starter', 'org.springdoc', 'springdoc-openapi-starter-webmvc-ui').versionRef('springdoc.openapi.starter')
 
         }
     }

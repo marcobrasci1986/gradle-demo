@@ -44,6 +44,7 @@ components:
         - email
         - firstName
         - lastName
+        - birthdate
       properties:
         id:
           type: string
@@ -56,4 +57,6 @@ components:
           maxLength: 10
         lastName:
           type: string
+        birthdate:
+          type: date
 
